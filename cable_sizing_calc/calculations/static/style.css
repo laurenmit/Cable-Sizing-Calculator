@@ -1,0 +1,19 @@
+#title-container{
+  padding-top: 25px;
+}
+label{
+  display:block;
+  margin-top: 8px;
+}
+
+input{
+  width: 150px;
+}
+
+select{
+  width: 150px;
+}
+
+.btn{
+  margin-top: 15px;
+}

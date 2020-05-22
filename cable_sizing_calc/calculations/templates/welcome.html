@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome {% endblock %}
+
+
+{% block body %}
+<div class="row">
+
+  <div class="jumbotron">
+  <h1 class="display-3">Welcome to the site!</h1>
+  <p class="lead"> Use this to size your cables, including calculations to determine voltage drops and short circuit current withstand capability.</p>
+  <hr class="my-4">
+  <p>Excited yet? Let's get started.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'new_cable' %}" role="button">Get Started</a>
+  </p>
+</div>
+  <!-- <h1>
+    Hi! Welcome to the website!
+  </h1> -->
+  </div>
+
+{% endblock %}

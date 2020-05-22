@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from calculations.views import welcome, cable_info, calculate, cable_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', welcome, name="welcome"),
+    path('cables', cable_info, name="new_cable"),
+    path('calculate', calculate, name="calculate"),
+    path('details', cable_detail, name="details"),
 ]

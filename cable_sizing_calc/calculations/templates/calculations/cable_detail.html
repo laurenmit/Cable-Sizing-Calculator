@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome {% endblock %}
+
+
+{% block body %}
+<h1>
+  Cable Detail!
+</h1>
+
+  <table>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Cross Sectional Area</th>
+      <th scope="col"> Current Rating</th>
+      <th scope="col"> Conductor Material</th>
+      <th scope="col">Insulation</th>
+      <th scope="col">Insulation Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for cable in cables %}
+    <tr class="table-primary">
+      <th scope="row">{{cable.cross_section}}mm<sup>2</sup></th>
+      <td>{{cable.nom_current_rating}}A</td>
+      <td>{{cable.conductor}}</td>
+      <td>{{cable.insulation}}</td>
+      <td>{{cable.voltage_rating}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

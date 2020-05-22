@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Cable Information {% endblock %}
+
+
+{% block body %}
+<p>
+  Populate your cable information here!
+
+  <form method="POST">
+
+      {{form}}
+      {{form.errors}}
+
+        {% csrf_token %}
+        </br>
+        <button type="submit" class="btn btn-success">Create</button>
+    </form>
+</p>
+
+{% endblock %}
