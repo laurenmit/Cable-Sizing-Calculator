@@ -17,6 +17,7 @@
       <th scope="col"> Conductor Material</th>
       <th scope="col">Insulation</th>
       <th scope="col">Insulation Rating</th>
+      <th scope="col" style="text-align:center"> Delete?</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,11 @@
       <td>{{cable.conductor}}</td>
       <td>{{cable.insulation}}</td>
       <td>{{cable.voltage_rating}}</td>
+      <td style="text-align:center">
+        <button class="btn btn-outline-danger btn-sm" id="del">
+          <a href="{% url 'delete' cable.id %}">-</a>
+        </button>
+      </td>
     </tr>
     {% endfor %}
   </tbody>

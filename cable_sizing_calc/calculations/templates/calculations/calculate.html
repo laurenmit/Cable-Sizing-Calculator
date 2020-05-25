@@ -6,13 +6,25 @@
 {% block body %}
 <p>
   Coming soon!
-  <!-- <form method="POST">
+  <form method="POST">
+    <select name="choose_cable">
+        {% for cable in cables %}
+      <option value="{{cable.id}}">
+        {{cable.cross_section}} mm<sup>2</sup> ,
+        {{cable.nom_current_rating}} A,
+        {{cable.conductor}},
+        {{cable.insulation}},
+        {{cable.voltage_rating}},
+      </option>
+      {% endfor %}
+    </select>
+
       {{form}}
 
     {% csrf_token %}
     </br>
     <button type="submit" class="btn btn-info">Submit</button>
-    </form> -->
+    </form>
 </p>
 
 {% endblock %}
