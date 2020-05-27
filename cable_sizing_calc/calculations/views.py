@@ -25,20 +25,30 @@ def calculate(request):
         form = CalculationForm(request.POST)
         if form.is_valid():
             id = request.POST.get('choose_cable')
+            cable = Cable.objects.get(pk=id)
             power = form.cleaned_data.get('power')
             pf = form.cleaned_data.get('power_factor')
             voltage = form.cleaned_data.get('voltage')
             distance = form.cleaned_data.get('distance')
+            time = form.cleaned_data.get('time')
             current = calc.fullLoadCurrent(power, voltage, pf)
-            impedance_m = Cable.objects.all().get(pk=id).impedance
+            impedance_m = cable.impedance
             v_drop = calc.voltage_drop(impedance_m, voltage, current, distance)
+            short_circuit_current = calc.short_circuit_kA(time, cable) 
             if v_drop < 5:
                 v_limit = False
             else:
                 v_limit = True
-            return render(request, 'calculations/results.html', {'power': power, 'pf':pf,
-                                'voltage': voltage, 'distance':distance, 'current': current,
-                                'v_drop':v_drop, 'v_limit': v_limit})
+            return render(request, 'calculations/results.html',
+                          {'power': power,
+                           'pf':pf,
+                           'voltage': voltage,
+                           'distance': distance,
+                           'current': current,
+                           'v_drop': v_drop,
+                           'v_limit': v_limit,
+                           'short_circuit': short_circuit_current
+                           })
     else:
         cables = Cable.objects.all()
         form = CalculationForm()

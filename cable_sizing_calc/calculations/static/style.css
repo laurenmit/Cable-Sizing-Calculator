@@ -7,13 +7,21 @@ label{
 }
 
 input{
-  width: 150px;
+  width: 200px;
 }
 
 select{
   width: 150px;
 }
 
-.btn{
+.btn[type="submit"]{
   margin-top: 15px;
+}
+
+#form_text{
+  margin-top: 25px;
+}
+
+#choose_cable{
+  width: 200px;
 }

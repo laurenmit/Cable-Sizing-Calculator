@@ -1,21 +1,48 @@
-{% extends "base.html" %}
-
-{% block title %} Cable Information {% endblock %}
-
-
-{% block body %}
+{% extends "base.html" %} {% block title %} Cable Information {% endblock %} {% block body %}
 <p>
   Populate your cable information here!
-
-  <form method="POST">
-
-      {{form}}
-      {{form.errors}}
-
-        {% csrf_token %}
-        </br>
-        <button type="submit" class="btn btn-success">Create</button>
-    </form>
 </p>
+
+<p>
+  Select the applicable option:
+  </p>
+<form method="POST">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <label>Cross Sectional Area:</label> {{form.cross_section}}
+      </div>
+      <div class="col-sm">
+        <label>Conductor:</label> {{form.conductor}}
+      </div>
+      <div class="col-sm">
+        <label>Insulation:</label> {{form.insulation}}
+      </div>
+      <div class="col-sm">
+        <label>Voltage Rating:</label> {{form.voltage_rating}}
+      </div>
+    </div>
+    <div class="row">
+      <p id="form_text">
+        Enter the cable information here:
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <label>Current Carrying Capacity [A]:</label> {{form.nom_current_rating}}
+      </div>
+      <div class="col-sm">
+        <label>1s Short Circuit Current [kA]:</label> {{form.short_circuit_1s}}
+      </div>
+      <div class="col-sm">
+        <label>Impedance [&#8486/km]:</label> {{form.impedance}}
+      </div>
+    </div>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">Create</button>
+</form>
+
+
+
 
 {% endblock %}
