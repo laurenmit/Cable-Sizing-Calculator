@@ -1,30 +1,38 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %} Cable Information {% endblock %} {% block body %}
+<h1>Cable Calculation Study</h1>
 
-{% block title %} Cable Information {% endblock %}
-
-
-{% block body %}
 <p>
-  Coming soon!
+  Enter the parameters for the calculation to determine full load current, voltage drop and short circuit withstand capability for the chosen cable.
+</p>
+<div class="container">
   <form method="POST">
-    <select name="choose_cable">
-        {% for cable in cables %}
-      <option value="{{cable.id}}">
-        {{cable.cross_section}} mm<sup>2</sup> ,
-        {{cable.nom_current_rating}} A,
-        {{cable.conductor}},
-        {{cable.insulation}},
-        {{cable.voltage_rating}},
-      </option>
-      {% endfor %}
-    </select>
-
-      {{form}}
-
-    {% csrf_token %}
+    <div class="row">
+      <div class="col-sm">
+      <label>Cable:</label>
+      <select name="choose_cable" id="choose_cable">
+          {% for cable in cables %}
+        <option value="{{cable.id}}">
+          {{cable.cross_section}} mm<sup>2</sup> ,
+          {{cable.nom_current_rating}} A,
+          {{cable.conductor}},
+          {{cable.insulation}},
+          {{cable.voltage_rating}}
+        </option>
+        {% endfor %}
+      </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+    {{form}} {% csrf_token %}
+    </div>
+    </div>
     </br>
     <button type="submit" class="btn btn-info">Submit</button>
-    </form>
-</p>
+  </form>
+
+</div>
+
+
 
 {% endblock %}

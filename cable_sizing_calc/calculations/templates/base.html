@@ -7,6 +7,7 @@
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/> -->
   <link rel="stylesheet" href="{% static 'calculations/bootstrap.min.css' %}"/>
   <link rel="stylesheet" href="{% static 'style.css' %}" type = "text/css">
+  <meta name = "viewport" content = "width = device-width,initial-scale=1"/>
 </head>
 
   <body>
@@ -18,9 +19,6 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item active">
-          <a class="nav-link" href=""> Calculate <span class="sr-only">(current)</span></a>
-        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'new_cable' %}">New Cable</a>
         </li>

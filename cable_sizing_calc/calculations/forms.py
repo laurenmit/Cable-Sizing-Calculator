@@ -38,10 +38,10 @@ volt_rate_choices = [
 
 class CableForm(forms.ModelForm):
     cross_section = forms.FloatField(widget=forms.Select(choices=cross_sect_choices))
-    nom_current_rating = forms.IntegerField() #unit is [A]
     conductor = forms.CharField(max_length=15, widget=forms.Select(choices=cond_choices))
     insulation = forms.CharField(max_length=5, widget=forms.Select(choices=insul_choices))
     voltage_rating = forms.CharField(max_length=20, widget=forms.Select(choices=volt_rate_choices))
+    nom_current_rating = forms.IntegerField() #unit is [A]
     short_circuit_1s = forms.FloatField() # unit is [kA]
     impedance = forms.FloatField()
 
@@ -53,10 +53,10 @@ class CableForm(forms.ModelForm):
          model = Cable
          fields = (
                      'cross_section',
-                     'nom_current_rating',
                      'conductor',
                      'insulation',
                      'voltage_rating',
+                     'nom_current_rating',
                      'short_circuit_1s',
                      'impedance',
                  )
@@ -67,3 +67,4 @@ class CalculationForm(forms.Form):
     voltage = forms.IntegerField(min_value=0) #unit is [A]
     power_factor = forms.FloatField(min_value=-1.0, max_value=1.0)
     distance = forms.FloatField(min_value=0.0) #unit is [m]
+    time = forms.FloatField(min_value=0)
