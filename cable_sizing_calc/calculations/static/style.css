@@ -24,4 +24,5 @@ select{
 
 #choose_cable{
   width: 200px;
+  display: inline-block;
 }
