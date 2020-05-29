@@ -68,3 +68,7 @@ class CalculationForm(forms.Form):
     power_factor = forms.FloatField(min_value=-1.0, max_value=1.0)
     distance = forms.FloatField(min_value=0.0) #unit is [m]
     time = forms.FloatField(min_value=0)
+
+    def __init__(self, *args, **kwargs):
+         super(forms.Form, self).__init__(*args, **kwargs)
+         self.fields['time'].label = 'Fault Clearing Time'

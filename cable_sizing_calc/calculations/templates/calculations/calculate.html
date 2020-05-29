@@ -8,12 +8,13 @@
   <form method="POST">
     <div class="row">
       <div class="col-sm">
-      <label>Cable:</label>
-      <select name="choose_cable" id="choose_cable">
+        <label>Cable:</label>
+        <select name="choose_cable" id="choose_cable">
           {% for cable in cables %}
         <option value="{{cable.id}}">
           {{cable.cross_section}} mm<sup>2</sup> ,
           {{cable.nom_current_rating}} A,
+          {{cable.impedance}} &#8486/km,
           {{cable.conductor}},
           {{cable.insulation}},
           {{cable.voltage_rating}}
@@ -21,13 +22,31 @@
         {% endfor %}
       </select>
       </div>
+      <div class="col-sm">
+        <label>Power [kW]:</label>
+        {{form.power}}
+      </div>
+      <div class="col-sm">
+        <label>Voltage [V]:</label>
+        {{form.voltage}}
+      </div>
     </div>
     <div class="row">
       <div class="col-sm">
-    {{form}} {% csrf_token %}
-    </div>
+        <label>Power Factor: </label>
+        {{form.power_factor}}
+      </div>
+      <div class="col-sm">
+        <label> Distance [m]: </label>
+        {{form.distance}}
+      </div>
+      <div class="col-sm">
+        <label>Fault Clearing Time: </label>
+        {{form.time}}
+      </div>
     </div>
     </br>
+    {% csrf_token %}
     <button type="submit" class="btn btn-info">Submit</button>
   </form>
 
